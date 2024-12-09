@@ -38,7 +38,7 @@ public class Day03 implements PuzzleSolution {
 						count += leftOperand * rightOperand;
 					}
 				}
-			};
+			}
 		}
 		return count;
 	}
