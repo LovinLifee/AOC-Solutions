@@ -2,6 +2,7 @@ package net.avuna.aoc.y2024;
 
 import org.togetherjava.aoc.core.annotations.AdventDay;
 import org.togetherjava.aoc.core.math.Direction;
+import org.togetherjava.aoc.core.math.matrix.Matrix;
 import org.togetherjava.aoc.core.puzzle.PuzzleInput;
 import org.togetherjava.aoc.core.puzzle.PuzzleSolution;
 
@@ -17,7 +18,7 @@ public class Day04 implements PuzzleSolution {
 		var matrix = puzzleInput.toCharMatrix();
 		for(var e : matrix.getEntries()) {
 			for(Direction d : Direction.getAll()) {
-				var ray = matrix.rayCast(e.position(), d,  4);
+				var ray = matrix.rayCast(e.position(), d,  4).stream().map(Matrix.Entry::value).toList();
 				if(ray.equals(xmas)) {
 					count++;
 				}
